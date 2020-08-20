@@ -22,5 +22,5 @@ function love.update(dt)
 end
 
 function love.draw()
-    ddd:draw()
+    ddd:main_screen()
 end

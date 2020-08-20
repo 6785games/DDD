@@ -14,9 +14,39 @@ function DDD:new()
 end
 
 function DDD:update(dt)
+	-- I always start with an easy way to exit the game
+	if love.keyboard.isDown('escape') then
+		love.event.push('quit')
+	end
+
+	if love.keyboard.isDown('1') then
+        player.x = player.x - (player.speed*dt)
+    elseif love.keyboard.isDown('left','a') then
+        player.x = player.x - (player.speed*dt)
+	elseif love.keyboard.isDown('right','d') then
+		player.x = player.x + (player.speed*dt)
+    elseif love.keyboard.isDown('up','w') then
+        player.x = player.x - (player.speed*dt)
+	elseif love.keyboard.isDown('down','s') then
+		player.x = player.x + (player.speed*dt)
+	end
 end
 
 function DDD:getStage(stage)
+
+end
+
+function DDD:main_screen()
+    self:updatePlayer()
+    self:updateTop('assets/tile_end.png')
+    self:updateBottom('assets/tile_end.png')
+    self:updateRight('assets/tile_end.png')
+    self:updateLeft('assets/tile_end.png')
+    game_title = "DDD"
+    start_text = "PRESS SPACE TO START"
+    love.graphics.print(game_title, self.center_width - 12, self.center_height + 180)
+    love.graphics.print(start_text, self.center_width - 64, self.center_height + 200)
+
 
 end
 
@@ -37,8 +67,8 @@ function DDD:updatePlayer()
     )
 end
 
-function DDD:updateTop()
-    tile_top = love.graphics.newImage('assets/tile_end.png')
+function DDD:updateTop(tile_image)
+    tile_top = love.graphics.newImage(tile_image)
     -- top tile, same w player, h = center - tile_h
     love.graphics.draw(
         tile_top,
@@ -47,8 +77,8 @@ function DDD:updateTop()
     )
 end
 
-function DDD:updateBottom()
-    tile_bottom = love.graphics.newImage('assets/tile_end.png')
+function DDD:updateBottom(tile_image)
+    tile_bottom = love.graphics.newImage(tile_image)
     -- bottom tile, same w player, h = center + tile_h
     love.graphics.draw(
         tile_bottom,
@@ -57,8 +87,8 @@ function DDD:updateBottom()
     )
 end
 
-function DDD:updateLeft()
-    tile_left = love.graphics.newImage('assets/tile_end.png')
+function DDD:updateLeft(tile_image)
+    tile_left = love.graphics.newImage(tile_image)
     -- left tile, same w player, h = center + tile_h
     love.graphics.draw(
         tile_left,
@@ -67,8 +97,8 @@ function DDD:updateLeft()
     )
 end
 
-function DDD:updateRight()
-    tile_right = love.graphics.newImage('assets/tile_end.png')
+function DDD:updateRight(tile_image)
+    tile_right = love.graphics.newImage(tile_image)
     -- right tile, same w player, h = center + tile_h
     love.graphics.draw(
         tile_right,
