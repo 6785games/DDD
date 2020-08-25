@@ -1,3 +1,5 @@
+debug=true
+
 function love.load()
 
     Object = require "lib.classic"

@@ -5,7 +5,7 @@ function DDD:new()
     self.tile_w, self.tile_h = self.player:getPixelDimensions()
     
     win_width, win_height, flags = love.window.getMode()
-    
+    love.window.setTitle("DDD")
     self.center_width = win_width / 2
     self.center_height = win_height / 2
 
@@ -42,10 +42,8 @@ function DDD:main_screen()
     self:updateBottom('assets/tile_end.png')
     self:updateRight('assets/tile_end.png')
     self:updateLeft('assets/tile_end.png')
-    game_title = "DDD"
     start_text = "PRESS SPACE TO START"
-    love.graphics.print(game_title, self.center_width - 12, self.center_height + 180)
-    love.graphics.print(start_text, self.center_width - 64, self.center_height + 200)
+    love.graphics.print(start_text, self.center_width - 70, self.center_height + 200)
 
 
 end
