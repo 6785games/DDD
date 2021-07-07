@@ -10,7 +10,6 @@ function DDD:new()
     self.center_height = win_height / 2
 
     self.tiles = {}
-
 end
 
 function DDD:update(dt)
@@ -44,8 +43,6 @@ function DDD:main_screen()
     self:updateLeft('assets/tile_end.png')
     start_text = "PRESS SPACE TO START"
     love.graphics.print(start_text, self.center_width - 70, self.center_height + 200)
-
-
 end
 
 function DDD:draw()

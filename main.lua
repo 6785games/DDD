@@ -16,7 +16,6 @@ function love.load()
     tile = TILE()
 
     ddd = DDD()
-    
 end
 
 function love.update(dt)
