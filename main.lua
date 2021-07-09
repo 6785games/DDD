@@ -3,17 +3,14 @@ debug=true
 function love.load()
 
     Object = require "lib.classic"
+    Vector = require "lib.vector"
 
     require "const"
-    require "game.stages"
+    require "game.levels"
     require "game.menu"
-    require "game.gui"
-    require "game.tile"
     require "game.ddd"
 
     menu = MENU()
-    gui = GUI()
-    tile = TILE()
 
     ddd = DDD()
 end

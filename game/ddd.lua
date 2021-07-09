@@ -1,5 +1,6 @@
 DDD = Object:extend()
 
+
 function DDD:new()
     self.player = love.graphics.newImage('assets/tile_player.png')
     self.tile_w, self.tile_h = self.player:getPixelDimensions()
@@ -18,16 +19,20 @@ function DDD:update(dt)
 		love.event.push('quit')
 	end
 
+    if love.keyboard.isDown('space') then
+        love.event.push()
+    end
+
 	if love.keyboard.isDown('1') then
-        player.x = player.x - (player.speed*dt)
+        self.player.x = self.player.x - 1
     elseif love.keyboard.isDown('left','a') then
-        player.x = player.x - (player.speed*dt)
+        self.player.x = self.player.x - 1
 	elseif love.keyboard.isDown('right','d') then
-		player.x = player.x + (player.speed*dt)
+		self.player.x = self.player.x + 1
     elseif love.keyboard.isDown('up','w') then
-        player.x = player.x - (player.speed*dt)
+        self.player.x = self.player.x - 1
 	elseif love.keyboard.isDown('down','s') then
-		player.x = player.x + (player.speed*dt)
+		self.player.x = self.player.x + 1
 	end
 end
 
