@@ -5,12 +5,7 @@ function love.load()
     Object = require "lib.classic"
     Vector = require "lib.vector"
 
-    require "const"
     require "game.levels"
-    require "game.menu"
-    require "game.ddd"
-
-    menu = MENU()
 
     ddd = DDD()
 end

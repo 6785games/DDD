@@ -1,4 +1,15 @@
+--[[ DDD ]]---
 DDD = Object:extend()
+
+--[[ Game const ]]--
+timer = 0
+current_level = 1
+max_level = 2
+
+--[[ Player ]]--
+name = 'DDD'
+lives = 3
+score = 0
 
 
 function DDD:new()
