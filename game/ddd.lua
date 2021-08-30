@@ -10,6 +10,8 @@ max_level = 2
 name = 'DDD'
 lives = 3
 score = 0
+pos_x = 0
+pos_y = 0
 
 
 function DDD:new()
@@ -23,6 +25,21 @@ function DDD:new()
     self.tiles = {}
 end
 
+function DDD:getStage(level)
+end
+
+function DDD:checkCollision(stage)
+end
+
+function DDD:checkEndStage(stage)
+end
+
+function DDD:checkEndGame(stage)
+end
+
+function DDD:resetPlayer(stage)
+end
+
 function DDD:update(dt)
 	-- I always start with an easy way to exit the game
 	if love.keyboard.isDown('escape') then
@@ -34,18 +51,29 @@ function DDD:update(dt)
     end
 
     if love.keyboard.isDown('left','a') then
-        self.player.x = self.player.x - 1
+        pos_x = pos_x - 1
 	elseif love.keyboard.isDown('right','d') then
-		self.player.x = self.player.x + 1
+		pos_x = pos_x + 1
     elseif love.keyboard.isDown('up','w') then
-        self.player.x = self.player.x - 1
+        pos+y = pos+y - 1
 	elseif love.keyboard.isDown('down','s') then
-		self.player.x = self.player.x + 1
+		pos+y = pos+y + 1
 	end
-end
 
-function DDD:getStage(stage)
+    -- Check move validity
+    -- if the player collides with a wall, reset to start
+    if checkCollision(current_level) then
+        lives = lives - 1
+        resetPlayer(current_level)
+    end
 
+    if checkEndStage() then
+        -- Stage is over
+    end
+
+    if checkEndGame() then
+        -- No more lives / game is over
+    end
 end
 
 function DDD:main_screen()
