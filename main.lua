@@ -6,6 +6,7 @@ function love.load()
     Vector = require "lib.vector"
 
     require "game.levels"
+    require "game.ddd"
 
     ddd = DDD()
 end

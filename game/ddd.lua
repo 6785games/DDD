@@ -1,12 +1,12 @@
---[[ DDD ]]---
+-- DDD
 DDD = Object:extend()
 
---[[ Game const ]]--
+-- Game const
 timer = 0
 current_level = 1
 max_level = 2
 
---[[ Player ]]--
+-- Player
 name = 'DDD'
 lives = 3
 score = 0
@@ -17,7 +17,6 @@ function DDD:new()
     self.tile_w, self.tile_h = self.player:getPixelDimensions()
     
     win_width, win_height, flags = love.window.getMode()
-    love.window.setTitle("DDD")
     self.center_width = win_width / 2
     self.center_height = win_height / 2
 
@@ -34,9 +33,7 @@ function DDD:update(dt)
         love.event.push()
     end
 
-	if love.keyboard.isDown('1') then
-        self.player.x = self.player.x - 1
-    elseif love.keyboard.isDown('left','a') then
+    if love.keyboard.isDown('left','a') then
         self.player.x = self.player.x - 1
 	elseif love.keyboard.isDown('right','d') then
 		self.player.x = self.player.x + 1
