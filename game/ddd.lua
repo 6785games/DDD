@@ -55,23 +55,23 @@ function DDD:update(dt)
 	elseif love.keyboard.isDown('right','d') then
 		pos_x = pos_x + 1
     elseif love.keyboard.isDown('up','w') then
-        pos+y = pos+y - 1
+        pos_y = pos+y - 1
 	elseif love.keyboard.isDown('down','s') then
-		pos+y = pos+y + 1
+		pos_y = pos+y + 1
 	end
 
     -- Check move validity
     -- if the player collides with a wall, reset to start
-    if checkCollision(current_level) then
+    if DDD:checkCollision(current_level) then
         lives = lives - 1
         resetPlayer(current_level)
     end
 
-    if checkEndStage() then
+    if DDD:checkEndStage() then
         -- Stage is over
     end
 
-    if checkEndGame() then
+    if DDD:checkEndGame() then
         -- No more lives / game is over
     end
 end
